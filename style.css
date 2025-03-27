@@ -1,0 +1,582 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 1px solid rgb(255, 255, 255);
+  outline-offset: 2px;
+  outline-color: hsl(245, 21%, 67%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 200 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "Inconsolata", sans-serif;
+  background-image: url("assets/images/background-desktop.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 180px;
+  margin-block: 4em 5em;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.headline,
+.ticket-section-style header h1 {
+  font-weight: bold;
+  font-size: 5em;
+  color: white;
+  text-align: center;
+  width: 29ch;
+}
+
+.intro-text,
+.ticket-section-style header p {
+  color: rgb(210, 209, 214);
+  font-size: 1.95em;
+  margin-block: 2em 1.5em;
+  margin-inline: 1.5em;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* Form */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1000;
+  max-width: 420px;
+  width: 100%;
+}
+
+.registration-form label {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  margin-block: 1.8em 0.5em;
+  font-weight: 300;
+}
+
+.registration-form .upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 1em;
+}
+
+/* .registration-form .upload-container .imageSelection {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+} */
+
+.registration-form .upload-box {
+  width: 420px;
+  height: 120px;
+  border: 2px dashed rgb(108, 105, 132);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  margin: 0;
+}
+
+.registration-form .upload-icon {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(51, 47, 80, 0.5);
+  border: 0.5px solid rgba(108, 105, 132, 0.5);
+  border-radius: 0.7em;
+  padding: 0.5em;
+}
+
+.registration-form .upload-box p {
+  color: rgb(210, 209, 214);
+  font-size: 1.3em;
+  font-weight: 200;
+  margin-top: 0.5em;
+  margin-inline: 1em;
+  text-align: center;
+}
+
+.registration-form .upload-box .button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.registration-form .upload-box .btn {
+  font-family: "Inconsolata", sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgb(210, 209, 214);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-weight: 100;
+}
+
+.registration-form .upload-box :is(.btn:hover, .btn:focus) {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+}
+
+.registration-form .icon-info {
+  margin-right: 0.7em;
+}
+
+.registration-form .upload-info {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  font-size: 1em;
+  align-items: center;
+}
+
+.registration-form :is(input, .upload-box) {
+  background-color: rgba(75, 72, 106, 0.2);
+  mix-blend-mode: screen;
+  width: 100%;
+}
+
+.registration-form :is(input, .upload-box):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.registration-form input {
+  color: white;
+  border: 1px solid rgb(108, 105, 132);
+  border-radius: 10px;
+  height: 45px;
+  padding: 1em;
+}
+
+.registration-form .submit-btn {
+  background-color: rgb(245, 114, 97);
+  color: hsl(248, 70%, 10%);
+  font-size: large;
+  font-weight: 700;
+  outline: 0;
+  border: 2px solid transparent;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-top: 1em;
+  transition: 0.3s all;
+}
+
+.registration-form .submit-btn:hover {
+  background-color: rgb(246, 120, 103);
+  outline: invert;
+  cursor: pointer;
+  border: 2px outset rgb(245, 114, 97);
+  box-shadow: 1px 1px 1px transparent;
+}
+
+.decor-image-top {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.decor-image-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Form validation */
+.error-message {
+  color: #cc0000;
+  margin-top: 5px;
+  display: none;
+  font-size: 1em;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 20px;
+}
+
+.spinner + p {
+  color: white;
+  font-family: "Inconsolata";
+  font-size: 2em;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* card */
+.gradient-name {
+  background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.gradient-email {
+  color: hsl(7, 71%, 60%);
+}
+
+.ticket-section-style {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: 2em;
+}
+
+.ticket-section-style header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket-section-style header p {
+  width: 400px;
+}
+
+.ticket-section-style .ticket-style {
+  background-image: url("assets/images/pattern-ticket.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  margin-inline: 2em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  position: relative;
+}
+
+.ticket-section-style .ticket-style header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 25px;
+  left: 50px;
+}
+
+.ticket-style header small {
+  color: rgb(210, 209, 214);
+  font-size: 0.9rem;
+  margin-top: 5px;
+  align-self: center;
+}
+
+.ticket-avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
+.ticket-avatar-container .ticket-avatar {
+  width: 50px;
+  height: auto;
+}
+
+.ticket-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  border: 1px solid rgb(156, 153, 189, 0.1);
+}
+
+.ticket-info {
+  color: white;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.ticket-info h2 {
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+.ticket-info div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.ticket-section-style footer {
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ticket-section-style footer button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  z-index: 1000;
+  font-size: 2em;
+}
+
+.ticket-section-style footer button:hover {
+  cursor: pointer;
+}
+
+.ticket-section-style footer button i {
+  margin-right: 0.5em;
+}
+
+.ticket-avatar-container .github-logo {
+  width: 10px;
+}
+
+.color-code {
+  transform: rotate(360deg);
+  font-size: 2.5em;
+  color: rgba(210, 209, 214, 0.4);
+  display: inline-block;
+  writing-mode: vertical-lr;
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+  .decor-image-top {
+    width: 30%;
+    top: 25px;
+  }
+
+  .ticket-section-style,
+  .ticket-section-style header h1 {
+    max-width: 250px;
+  }
+
+  .ticket-section-style header p {
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  .ticket-section-style .ticket-style {
+    height: 200px;
+  }
+
+  .ticket-section-style .ticket-style header {
+    top: 50px;
+    left: 5px;
+  }
+
+  .ticket-style header img {
+    width: 100px;
+    height: auto;
+  }
+
+  .ticket-avatar-container .ticket-avatar {
+    width: 40px;
+  }
+
+  .ticket-section-style footer button {
+    margin-left: -30px;
+    margin-top: -30px;
+  }
+
+  .ticket-avatar-container {
+    margin-bottom: 25px;
+    margin-left: -45px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  body {
+    background-image: url("assets/images/background-mobile.png");
+  }
+
+  .registration-form {
+    width: 90%;
+  }
+
+  .registration-form .upload-box {
+    width: 100%;
+  }
+
+  .registration-form .upload-box p {
+    font-size: 1em;
+  }
+
+  .registration-form {
+    margin-bottom: 2em;
+  }
+
+  .decor-image-bottom {
+    width: 80%;
+  }
+
+  .headline {
+    width: 100%;
+    font-size: 3em;
+  }
+
+  .ticket-section-style header h1 {
+    width: 100%;
+    margin-inline: 1em;
+    font-size: 3em;
+  }
+
+  .intro-text,
+  .ticket-section-style header p {
+    margin-block: 2em 1.5em;
+    margin-inline: 1em;
+    width: 100%;
+  }
+
+  .ticket-section-style .ticket-style {
+    width: 250px;
+  }
+
+  .ticket-style header img {
+    width: 150px;
+    height: auto;
+  }
+
+  .ticket-style header small {
+    align-self: flex;
+  }
+
+  .ticket-avatar-container .ticket-avatar {
+    width: 40px;
+  }
+
+  .color-code {
+    font-size: 2em;
+    top: 70px;
+    right: 15px;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 599px) {
+  .ticket-section-style .ticket-style header {
+    top: 50px;
+    left: 5px;
+  }
+
+  .ticket-avatar-container {
+    position: absolute;
+    bottom: 45px;
+    left: 5px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  body {
+    background-image: url("assets/images/background-tablet.png");
+  }
+
+  .registration-form {
+    margin-bottom: 3em;
+  }
+
+  .decor-image-bottom {
+    width: 80%;
+  }
+
+  .headline,
+  .ticket-section-style header h1 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .error-message {
+    font-size: 2em;
+  }
+
+  .registration-form .icon-info {
+    font-size: 1.5em;
+  }
+
+  .ticket-style header small {
+    align-self: center;
+  }
+
+  .ticket-section-style footer button {
+    font-size: 3em;
+  }
+
+  .ticket-avatar-container {
+  }
+}

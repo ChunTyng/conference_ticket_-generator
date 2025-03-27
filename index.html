@@ -11,38 +11,157 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <!-- Google-font -->
-
+    <!-- Font-Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
     <title>Conference ticket generator</title>
   </head>
   <body>
+    <!-- #region Header -->
+    <header class="header-top">
+      <img src="assets/images/logo-full.svg" alt="Icon" class="logo" />
+      <h1 class="headline">Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p class="intro-text">
+        Secure your spot at next year's biggest coding conference.
+      </p>
+    </header>
+    <!-- #endregion -->
+
     <!-- Form starts -->
+    <form
+      action="#"
+      class="registration-form"
+      id="registration-form"
+      novalidate
+    >
+      <label for="image-upload" class="upload-label">Upload Avatar</label>
+      <div class="upload-container">
+        <input
+          type="file"
+          id="image-upload"
+          name="image"
+          class="imageSelection"
+          accept="image/*"
+          hidden
+        />
+        <label for="image-upload" class="upload-box" tabindex="0">
+          <img
+            src="assets/images/icon-upload.svg"
+            alt="Upload Icon"
+            class="upload-icon"
+          />
+          <p>Drag and drop or click to upload</p>
+        </label>
+        <small class="upload-info">
+          <img
+            src="assets/images/icon-info.svg"
+            alt="icon-info"
+            class="icon-info"
+          />
+          Upload your photo (JPG or PNG, max size: 500KB).
+        </small>
+        <small class="error-message"></small>
+      </div>
 
-    Your Journey to Coding Conf 2025 Starts Here! Secure your spot at next
-    year's biggest coding conference. Upload Avatar Drag and drop or click to
-    upload Upload your photo (JPG or PNG, max size: 500KB). Full Name Email
-    Address example@email.com GitHub Username @yourusername Generate My Ticket
+      <label for="full-name" class="form-label">Full Name</label>
+      <input type="text" id="full-name" name="full-name" class="input-field" />
+      <small class="error-message"></small>
 
+      <label for="email" class="form-label">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@email.com"
+        class="input-field"
+      />
+      <small class="error-message"></small>
+
+      <label for="github-username" class="form-label">Github Username</label>
+      <input
+        type="text"
+        id="github-username"
+        name="github-username"
+        placeholder="@yourusername"
+        class="input-field"
+      />
+      <small class="error-message"></small>
+
+      <button type="submit" class="submit-btn">Generate My Ticket</button>
+    </form>
     <!-- Form ends -->
 
-    <!-- Generated tickets starts -->
+    <!-- Card -->
+    <div id="ticket-section" class="ticket-section-style">
+      <header>
+        <h1>
+          Congrats,
+          <span class="gradient-name" id="gradient-name"></span>! Your ticket is
+          ready.
+        </h1>
+        <p>
+          We've emailed your ticket to
+          <span class="gradient-email" id="gradient-email"></span>
+          and will send updates leading up to the event.
+        </p>
+      </header>
 
-    Congrats,
-    <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
-    <!-- Email Address -->
-    and will send updates in the run up to the event. Coding Conf Jan 31, 2025 /
-    Austin, TX
+      <section id="ticket" class="ticket-style">
+        <header>
+          <img src="assets/images/logo-full.svg" alt="Event Logo" />
+          <small>Jan 31 ,2025 / Austin , TX</small>
+        </header>
 
-    <!-- Generated tickets ends -->
+        <section class="ticket-avatar-container">
+          <img src="" alt="User Avatar" class="ticket-avatar" />
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+          <div class="ticket-info">
+            <h2 id="ticket-name"></h2>
+            <div>
+              <img
+                src="assets/images/icon-github.svg"
+                alt="github-logo"
+                class="github-logo"
+              />
+              <p id="ticket-github"></p>
+            </div>
+          </div>
+        </section>
+        <p class="color-code">#01609</p>
+      </section>
+
+      <footer>
+        <button onclick="backToForm()">
+          <i class="fa-solid fa-arrow-left-long"></i>Back
+        </button>
+      </footer>
     </div>
+
+    <!-- #region decoration -->
+    <img
+      src="assets/images/pattern-squiggly-line-top.svg"
+      alt="Decor"
+      class="decor-image-top"
+    />
+    <img
+      src="assets/images/pattern-squiggly-line-bottom-desktop.svg"
+      alt="Decor"
+      class="decor-image-bottom"
+    />
+
+    <div class="loader-container" style="display: none">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+    <!-- #endregion -->
 
     <script src="script.js"></script>
   </body>
